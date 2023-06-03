@@ -5,10 +5,10 @@ import "@chainlink/blob/develop/contracts/src/v0.8/interfaces/AggregatorV3Interf
 
 contract FundMe {
 
-    uint256 public minimumContribution = 50; // in usd
+    uint256 public minimumContribution = 50 * 1e18;
 
     function fund() public payable {
-        require(msg.value >= minimumContribution, "You need to spend more ETH!");
+        require(getConversionRate(msg.value) >= minimumContribution, "You need to spend more ETH!");
     }
 
     function getPrice() public view returns (uint256) {
@@ -24,7 +24,9 @@ contract FundMe {
         return uint256(answer * 1e10);
     }
 
-    function getConversionRate() public {
-
+    function getConversionRate(uint256 ethAmount) public view returns (uint256){
+        uint256 ethPrice = getPrice();
+        uint256 ethAmountInUsd = (ethPrice * ethAmount) / 1e18;
+        return ethAmountInUsd;
     }
 }
