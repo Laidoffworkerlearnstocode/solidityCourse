@@ -1,5 +1,11 @@
 {
   "dependencies": {
-    "@chainlink/contracts": "^0.6.1"
+    "@chainlink/contracts": "^0.6.1",
+    "@openzeppelin/contracts": "^4.9.1",
+    "ganache": "^7.8.0",
+    "solc": "^0.8.20"
+  },
+  "scripts": {
+    "compile": "./node_modules/.bin/solcjs --bin --abi --include-path node_modules/ --base-path . -o . ./hardHatSimpleStorage/SimpleStorage.sol"
   }
 }
