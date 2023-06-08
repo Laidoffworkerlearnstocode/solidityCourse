@@ -2,6 +2,7 @@
   "dependencies": {
     "@chainlink/contracts": "^0.6.1",
     "@openzeppelin/contracts": "^4.9.1",
+    "colors": "^1.4.0",
     "ganache": "^7.8.0",
     "solc": "^0.8.20"
   },
