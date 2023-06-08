@@ -10,5 +10,8 @@
   },
   "scripts": {
     "compile": "./node_modules/.bin/solcjs --bin --abi --include-path node_modules/ --base-path . -o . ./hardHatSimpleStorage/SimpleStorage.sol"
+  },
+  "devDependencies": {
+    "hardhat": "^2.15.0"
   }
 }
